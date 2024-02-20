@@ -1,7 +1,9 @@
 pipeline {
+    stages{
     stage('Initialize'){
         def dockerHome = tool 'docker'
         env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
     }
     agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
   //   tools {
