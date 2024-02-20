@@ -1,4 +1,8 @@
 pipeline {
+    stage('Initialize'){
+        def dockerHome = tool 'docker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
     agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
   //   tools {
   //   // a bit ugly because there is no `@Symbol` annotation for the DockerTool
